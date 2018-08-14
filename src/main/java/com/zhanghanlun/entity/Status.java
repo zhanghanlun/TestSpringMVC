@@ -20,9 +20,9 @@ public class Status {
 
     public Status() {
         token = null;
-        userId = "1011436981";
+        userId = "***";
         userCode = null;
-        username = "zhanghanlun1@foxmail.com";
+        username = "***";
         proEndDate = "2020-01-01T00:00:00.000+0000";
         subscribeType = "order";
         subscribeFreq = null;
