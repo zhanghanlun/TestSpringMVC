@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhanghanlun.dao.SignonMapper">
+    <resultMap id="BaseMap" type="com.zhanghanlun.entity.Signon">
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="token" property="token" jdbcType="VARCHAR"/>
+        <result column="user_name" property="username" jdbcType="VARCHAR"/>
+        <result column="pro_end_date" property="proEndDate" jdbcType="VARCHAR"/>
+        <result column="subscribe_type" property="subscribeType" jdbcType="VARCHAR"/>
+        <result column="inbox_id" property="inboxId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="findSignonByUserId" resultMap="BaseMap" parameterType="String">
+        select user_id, token, user_name,pro_end_date, subscribe_type,inbox_id
+        from signon
+        where user_id = #{userId}
+    </select>
+</mapper>
