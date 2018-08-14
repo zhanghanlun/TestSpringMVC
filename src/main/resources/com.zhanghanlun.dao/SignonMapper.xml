@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace 是命名空间，代表着此xml文件对应哪个Dao接口或者Mapper接口 -->
 <mapper namespace="com.zhanghanlun.dao.SignonMapper">
     <resultMap id="BaseMap" type="com.zhanghanlun.entity.Signon">
         <result column="user_id" property="userId" jdbcType="VARCHAR"/>
