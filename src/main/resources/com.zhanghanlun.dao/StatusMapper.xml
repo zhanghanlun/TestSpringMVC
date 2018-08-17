@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace 是命名空间，代表着此xml文件对应哪个Dao接口或者Mapper接口 -->
+<mapper namespace="com.zhanghanlun.dao.StatusMapper">
+    <resultMap id="BaseMap" type="com.zhanghanlun.entity.Status">
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="user_name" property="username" jdbcType="VARCHAR"/>
+        <result column="pro_end_date" property="proEndDate" jdbcType="VARCHAR"/>
+        <result column="subscribe_type" property="subscribeType" jdbcType="VARCHAR"/>
+        <result column="inbox_id" property="inboxId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="findStatusByUserId" resultMap="BaseMap" parameterType="String">
+        select user_id, user_name,pro_end_date, subscribe_type,inbox_id
+        from status
+        where user_id = #{userId}
+    </select>
+</mapper>

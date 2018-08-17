@@ -1,6 +1,7 @@
 package com.zhanghanlun.action;
 
 import com.zhanghanlun.dao.SignonMapper;
+import com.zhanghanlun.dao.StatusMapper;
 import com.zhanghanlun.entity.Signon;
 import com.zhanghanlun.entity.Status;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +21,26 @@ public class TestController {
     @Autowired
     private SignonMapper signonMapper;
 
+    @Autowired
+    private StatusMapper statusMapper;
+
     @RequestMapping(value = "/signon")
     @ResponseBody
     public Signon getSignon(HttpServletRequest request){
         Signon signon = signonMapper.findSignonByUserId("1011436981");
+        signon.setPro(true);
+        signon.setNeedSubscribe(false);
+        signon.setDs(true);
         return signon;
     }
 
     @RequestMapping(value = "/status")
     @ResponseBody
     public Status getWhat(HttpServletRequest request){
-        Status status= new Status();
+        Status status= statusMapper.findStatusByUserId("1011436981");
+        status.setDs(true);
+        status.setPro(true);
+        status.setNeedSubscribe(false);
         return status;
     }
 }
